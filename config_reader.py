@@ -1,6 +1,8 @@
 from pydantic import BaseSettings, SecretStr
 
 
+# класс для секретных данных (токенов бота, погоды, приема платежей и gpt), а так же
+# id-шники админов бота
 class Settings(BaseSettings):
     # Желательно использовать SecretStr для конфиденциальных данных
     bot_token: SecretStr

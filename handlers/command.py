@@ -8,6 +8,7 @@ from config_reader import config
 router: Router = Router()
 
 
+# Хэндлер для команды старт
 @router.message(Command('start'))
 async def command_start(message: Message):
     await message.answer(
@@ -17,13 +18,16 @@ async def command_start(message: Message):
     )
 
 
+# Хендлер для команды хелп
 @router.message(Command('help'))
 async def command_help(message: Message):
     pass
 
 
+# Обработка платежа
 @router.message(Command('buy'))
 async def command_buy(message: Message, bot: Bot):
+    # amount должен получать сумму в копейках
     PRICE = types.LabeledPrice(label='Подписка на 1 месяц', amount=10*100)
     if config.pay_token.get_secret_value().split(':')[1] == 'TEST':
         await bot.send_invoice(message.chat.id,

@@ -8,10 +8,12 @@ class FSM_Main(StatesGroup):
     download = State()
 
 
+# Состояния для меню погоды
 class Weather(StatesGroup):
     city = State()
 
 
+# Состояние для меню скачивания
 class Download(StatesGroup):
     video = State()
     audio = State()

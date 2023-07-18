@@ -1,3 +1,4 @@
+# Возвращает шаблон заполнения погоды
 def get_weather_text(dct: dict):
     if dct['cod'] == 200:
         return f'Погода в городе {dct["city"]}.\n\n' \

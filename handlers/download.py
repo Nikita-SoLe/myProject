@@ -12,7 +12,7 @@ from keyboards.main_kb import main_menu_kb
 router = Router()
 
 
-#
+# Обработка кнопки скачивания видео
 @router.message(Text('Видео'))
 async def dwn_video(message: types.Message, state: FSMContext):
     await state.set_state(Download.video)
@@ -20,6 +20,7 @@ async def dwn_video(message: types.Message, state: FSMContext):
                          reply_markup=main_menu_kb())
 
 
+# Обработка кнопки скачивания аудио
 @router.message(Text('Аудио'))
 async def dwn_video(message: types.Message, state: FSMContext):
     await state.set_state(Download.audio)
@@ -28,6 +29,7 @@ async def dwn_video(message: types.Message, state: FSMContext):
                          reply_markup=main_menu_kb())
 
 
+# Обработка после получения ссылки на видео
 @router.message(Download.video, F.text)
 async def handle_download_video(message: types.Message, state: FSMContext):
     await message.answer('Подождите немного пожалуйста')
@@ -65,7 +67,7 @@ async def handle_download_video(message: types.Message, state: FSMContext):
     await state.set_state(Download.video)
 
 
-#
+# Обработка после получения ссылки на аудио
 @router.message(Download.audio, F.text)
 async def handler_download_audio(message: types.Message, state: FSMContext):
     await message.answer('Подождите немного пожалуйста')

@@ -4,11 +4,13 @@ from aiogram import Router, Bot, types
 router: Router = Router()
 
 
+# Проверка платежа
 @router.pre_checkout_query()
 async def process_pre_checkout_query(query: types.PreCheckoutQuery, bot: Bot):
     await bot.answer_pre_checkout_query(query.id, ok=True)
 
 
+# Реагирование на платеж
 @router.message(content_types=types.ContentType.SUCCESSFUL_PAYMENT)
 async def process_successful_payment(message: types.Message):
     print('SUCCESSFUL PAYMENT:')

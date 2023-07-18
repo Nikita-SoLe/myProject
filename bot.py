@@ -8,6 +8,7 @@ bot: Bot = Bot(token=config.bot_token.get_secret_value())
 dp: Dispatcher = Dispatcher()
 
 
+# Запуск бота
 async def main():
 
     dp.include_routers(

@@ -25,7 +25,7 @@ async def get_weather_kb(message: Message, state: FSMContext):
 async def gpt_button_touch(message: Message, state: FSMContext):
     await state.set_state(FSM_Main.chat_gpt)
     await message.answer(
-        f'Привет, я ChatGP\n '
+        f'Привет, я ChatGPT\n '
         f'👋\n'
         f'Что ты хочешь у меня узнать?',
         reply_markup=main_menu_kb(),
@@ -33,7 +33,7 @@ async def gpt_button_touch(message: Message, state: FSMContext):
     )
 
 
-#
+# Хэндлер на кнопку скачивания
 @router.message(Text('Скачать из YouTube'))
 async def download_for_yt(message: Message, state: FSMContext):
     await state.set_state(FSM_Main.download)

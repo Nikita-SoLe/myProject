@@ -14,7 +14,7 @@ def get_main_keyboard() -> ReplyKeyboardMarkup:
     return kb.as_markup(resize_keyboard=True)
 
 
-# Клавиатура Главное меню
+# Клавиатура "Главное меню"
 def main_menu_kb() -> ReplyKeyboardMarkup:
 
     kb: ReplyKeyboardBuilder = ReplyKeyboardBuilder()
@@ -36,7 +36,7 @@ def get_download_kb() -> ReplyKeyboardMarkup:
     return kb.as_markup(resize_keyboard=True)
 
 
-# Клавиатура погодного меню
+# Клавиатура меню погоды
 def weather_keyboard() -> ReplyKeyboardMarkup:
 
     kb: ReplyKeyboardBuilder = ReplyKeyboardBuilder()

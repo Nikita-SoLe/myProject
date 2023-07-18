@@ -34,4 +34,4 @@ def download_video(url, type, res='480p'):
 
 
 if __name__ == '__main__':
-    download_video('https://youtube.com/shorts/JxSrpc43m1Q?feature=share', type='video')
+    pass

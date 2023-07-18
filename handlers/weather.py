@@ -12,6 +12,7 @@ from lexicon.weather import get_weather_text
 router: Router = Router()
 
 
+# Нажатие кнопки город в погоде
 @router.message(Text('Город'))
 async def city_weather(message: Message, state: FSMContext):
     await message.answer(
@@ -21,6 +22,7 @@ async def city_weather(message: Message, state: FSMContext):
     await state.set_state(Weather.city)
 
 
+# Ответ на погоду по городу
 @router.message(Weather.city, F.text)
 async def city_text_handler(message: Message, state: FSMContext):
     await state.set_state(FSM_Main.weather)
@@ -33,6 +35,7 @@ async def city_text_handler(message: Message, state: FSMContext):
     )
 
 
+# Ответ на погоду по локации
 @router.message(FSM_Main.weather, F.location)
 async def weather_location(message: Message):
 
